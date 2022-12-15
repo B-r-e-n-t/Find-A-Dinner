@@ -25,28 +25,19 @@ body {
 
 input, button {
     border: 1 px solid lightgrey;
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-    font-size: 14px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    font-size: 20px;
     padding: 8px 10px;
     margin: 0;
 }
 
 input[type='text'] {
-    width: 300px;
+    width: 400px;
 }
 
 #search {
     border: 1px solid;
-}
-
-#random {
-    border: 1px solid;
-    cursor: pointer;
-    background-color: rgb(5, 177, 240);
-    color: brown;
-    border-radius: 4px;
-    margin-left: 10px;
 }
 
 .search-btn {
@@ -54,8 +45,8 @@ input[type='text'] {
     border: 1px solid;
     border-left: 0;
     border-radius: 0;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .meals {
@@ -138,6 +129,10 @@ input[type='text'] {
     font-weight: bold;
     padding: 5px;
     margin: 5px 5px;
+}
+
+.recipe-link {
+    color: white;
 }
 
 @media(max-width: 800px) {
