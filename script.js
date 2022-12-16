@@ -7,7 +7,10 @@ const resultHeading = document.getElementById('result-heading');
 function searchMeal(e) {
     e.preventDefault();
 
-    const term = search.value;
+const renderError = function(msg) {
+    resultHeading.innerHTML = `<h2>${msg}</h2>`
+}
+const term = search.value;
 
     if(term.trim()) {
         fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${term}&number=100&addRecipeInformation=true&apiKey=1c7cee04f89940d3b7996e14eafd77a0`)
@@ -32,8 +35,11 @@ function searchMeal(e) {
                 </a>`)
                 .join('');
             }
-        });
+        })
+        .catch(err =>
+        renderError(`Something went wrong`))
         search.value = '';
+        
     } else {
         resultHeading.innerHTML = `<p>Please enter a search term<p>`
     }
