@@ -107,11 +107,7 @@ input[type='text'] {
     }
 
     .meal-info{
-        opacity: 1;
-    }
-
-    .meal-info:hover {
-        opacity: 0;
+        opacity: .7;
     }
 }
 @media(max-width: 700px) {
