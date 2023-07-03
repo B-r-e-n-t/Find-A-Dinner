@@ -5,22 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
-    <title>Find a Dinner</title>
+    <title>Make A Meal</title>
 </head>
 <body>
     <div class="container">
-        <h1>Find a Dinner</h1>
+        <h1>Make A Meal</h1>
+        <a href="favorites.html" class="favorites">Favorites</a>
         <h4>Bring the taste of fine dining to your kitchen</h4>
         <div class="flex">
             <form class="flex" id="submit">
                 <input type="text" id="search" placeholder="ex: 'chicken' 'beef and cheese'">
                 <button class="search-btn" type="submit">🔍</button>
             </form>
+            <button class="random-btn" id="random">🔁</button>
         </div>
 
         <div id="result-heading"></div>
         <div id="meals" class="meals"></div>
-
+        <div class="single-meal"></div>
     </div>
 
     <script src="script.js"></script>
