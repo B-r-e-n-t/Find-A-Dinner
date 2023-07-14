@@ -72,6 +72,8 @@ input[type='text'] {
 
 .search-btn {
     width: 60px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .random-btn:hover {
