@@ -29,10 +29,11 @@ const term = search.value;
                         <img src="${meal.image}" alt="${meal.title}" />
                         <div class="meal-info" data-mealID="${meal.id}">
                         <h3>${meal.title}</h3>
-                        <button class="add-to-favorites-btn">+</button>
+                        <button class="add-to-favorites-btn">Add to Favorites</button>
                         </div> 
                     </div>
-                </a>`)
+                </a>`
+                )
                 .join('');
             }
         })
@@ -45,33 +46,66 @@ const term = search.value;
     }
 }
 
+
+///////////////////////// Adding items to favorites list
+
+
+const favoritesList = document.getElementById('favorites-list');
+let favorites = [];
+
+function addFavorite(title) {
+    if (!favorites.includes(title)) {
+        favorites.push(title);
+        updateFavoritesUI();
+    }
+}
+
+function updateFavoritesUI() {
+    favoritesList.innerHTML = favorites.map(title => `<li>${title} <button class="delete-favorites">X</button> </li>`).join('');
+}
+
+mealsEl.addEventListener('click', function(e) {
+    if (e.target.classList.contains('add-to-favorites-btn')) {
+        e.preventDefault(); // Prevent default action (navigation)
+        e.stopPropagation(); // Stop the event from bubbling up to parent elements
+
+        const mealInfo = e.target.closest('.meal');
+        if (mealInfo) {
+            const title = mealInfo.querySelector('h3').textContent;
+            addFavorite(title);
+        }
+    }
+});
+
+////////////////////////////////////////////////////////////////////////
+
+
+// Deleting the item form favorites ///////////////////////////
+
+function deleteFavorite(itemTitle) {
+    console.log("Attempting to delete:", itemTitle); // Debugging
+    console.log("Favorites before deletion:", favorites); // Debugging
+
+    favorites = favorites.filter(title => title.trim() !== itemTitle.trim());
+    updateFavoritesUI();
+
+    console.log("Favorites after deletion:", favorites); // Debugging
+}
+
+favoritesList.addEventListener('click', function(e) {
+    if (e.target.classList.contains('delete-favorites')) {
+        const itemToDelete = e.target.closest('li').textContent.trim();
+        deleteFavorite(itemToDelete);
+    }
+});
+
+
+////////////////////////////////////////////////////////
+
+
+
+
 submit.addEventListener('submit', searchMeal);
-
-
-
-
-
-// >>>>>>>>>>>  Favorites Page  <<<<<<<<<<<<<<<
-
-const favoriteMealsEl = document.getElementById('favorite-meals');
-const favoriteButton = document.getElementById('favoriteButton');
-
-
-function saveToFavorites(recipeId) {
-    // Retrieve existing favorites or initialize an empty array
-    let favorites = localStorage.getItem('favorites');
-    favorites = favorites ? JSON.parse(favorites) : [];
-  
-    // Add the recipeId to the favorites array
-    favorites.push(recipeId);
-  
-    // Store the updated favorites array in local storage
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-  }
-  
-  // Example usage
-  saveToFavorites('recipe123');
-
 
 
 

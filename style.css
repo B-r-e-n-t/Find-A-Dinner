@@ -202,3 +202,33 @@ input[type='text'] {
     background-color: white;
     cursor: pointer;
 }
+
+
+
+
+
+
+
+#favorites {
+    margin: 0 auto;
+}
+
+
+#favorites-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+
+#favorites-list li {
+    list-style: none;
+    border: 1px solid #ccc;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/* #favorites-list img {
+    width: 100%;
+    height: auto;
+} */
