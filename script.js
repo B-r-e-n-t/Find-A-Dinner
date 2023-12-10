@@ -61,7 +61,18 @@ function addFavorite(title) {
 }
 
 function updateFavoritesUI() {
-    favoritesList.innerHTML = favorites.map(title => `<li>${title} <button class="delete-favorites">X</button> </li>`).join('');
+    favoritesList.innerHTML = favorites.map(title => 
+        // `<div>
+        //     <li>${title}</li>
+        //     <button class="delete-favorites">X</button>
+        // </div>`
+
+        `<li>
+            <span class="favorite-title">${title}</span>
+            <button class="delete-favorites">x</button>
+        </li>`
+
+        ).join('');
 }
 
 mealsEl.addEventListener('click', function(e) {
@@ -76,6 +87,8 @@ mealsEl.addEventListener('click', function(e) {
         }
     }
 });
+
+console.log(favorites)
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -92,10 +105,18 @@ function deleteFavorite(itemTitle) {
     console.log("Favorites after deletion:", favorites); // Debugging
 }
 
+
 favoritesList.addEventListener('click', function(e) {
     if (e.target.classList.contains('delete-favorites')) {
-        const itemToDelete = e.target.closest('li').textContent.trim();
-        deleteFavorite(itemToDelete);
+        // Find the closest <li> element
+        const liElement = e.target.closest('li');
+        if (liElement) {
+            // Retrieve the text content of the .favorite-title span within the <li>
+            const itemToDelete = liElement.querySelector('.favorite-title').textContent.trim();
+            deleteFavorite(itemToDelete);
+        } else {
+            console.error('Could not find the <li> element for the clicked delete button.');
+        }
     }
 });
 
