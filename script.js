@@ -1,37 +1,4 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyA1olxmR-rJaje5fgdiactBXMIyAYmPX6c",
-  authDomain: "find-a-dinner.firebaseapp.com",
-  projectId: "find-a-dinner",
-  storageBucket: "find-a-dinner.appspot.com",
-  messagingSenderId: "225796504192",
-  appId: "1:225796504192:web:b269c6e87398db265a0465",
-  measurementId: "G-ZF6S106VY6"
-};
-
-// Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
-
-// const auth = firebase.auth()
-// const database = firebae.database()
-
-// function register () {
-//     email = document.getElementById('email').value
-//     password = document.getElementById('password').value
-//     full_name = document.getElementById('full_name').value
-// }
-
-// function validate_email() {
-
-// }
 
 
 
