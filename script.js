@@ -1,3 +1,60 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyA1olxmR-rJaje5fgdiactBXMIyAYmPX6c",
+  authDomain: "find-a-dinner.firebaseapp.com",
+  projectId: "find-a-dinner",
+  storageBucket: "find-a-dinner.appspot.com",
+  messagingSenderId: "225796504192",
+  appId: "1:225796504192:web:b269c6e87398db265a0465",
+  measurementId: "G-ZF6S106VY6"
+};
+
+// Initialize Firebase
+// const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
+
+// const auth = firebase.auth()
+// const database = firebae.database()
+
+// function register () {
+//     email = document.getElementById('email').value
+//     password = document.getElementById('password').value
+//     full_name = document.getElementById('full_name').value
+// }
+
+// function validate_email() {
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const search = document.getElementById('search');
 const submit = document.getElementById('submit');
 const mealsEl = document.getElementById('meals');
@@ -50,6 +107,12 @@ const term = search.value;
 ///////////////////////// Adding items to favorites list
 
 
+
+function saveFavoritesToLocalStorage() {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+}
+
+
 const favoritesList = document.getElementById('favorites-list');
 let favorites = [];
 
@@ -57,23 +120,21 @@ function addFavorite(title) {
     if (!favorites.includes(title)) {
         favorites.push(title);
         updateFavoritesUI();
+
+        saveFavoritesToLocalStorage();
     }
 }
 
+
 function updateFavoritesUI() {
     favoritesList.innerHTML = favorites.map(title => 
-        // `<div>
-        //     <li>${title}</li>
-        //     <button class="delete-favorites">X</button>
-        // </div>`
-
         `<li>
             <span class="favorite-title">${title}</span>
             <button class="delete-favorites">x</button>
         </li>`
-
         ).join('');
 }
+
 
 mealsEl.addEventListener('click', function(e) {
     if (e.target.classList.contains('add-to-favorites-btn')) {
@@ -88,7 +149,6 @@ mealsEl.addEventListener('click', function(e) {
     }
 });
 
-console.log(favorites)
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -103,6 +163,8 @@ function deleteFavorite(itemTitle) {
     updateFavoritesUI();
 
     console.log("Favorites after deletion:", favorites); // Debugging
+
+    saveFavoritesToLocalStorage();
 }
 
 

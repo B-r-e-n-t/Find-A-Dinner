@@ -11,17 +11,24 @@ body {
     height: 100%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
+    scroll-behavior: smooth;
 }
 
-.favorites {
+.back-to-top-btn {
+    text-decoration: none;
+    color: white;
+}
+
+.favorites-btn {
     color: white;
     font-size: 1rem;
     text-decoration: none;
     border: white 1px solid;
-    padding: 5px;
+    padding: 10px 15px 10px 15px;
+    border-radius: 20px;
 }
 
-.favorites:hover {
+.favorites-btn:hover {
     color: rgb(118, 7, 7);
     background-color: white;
 }
@@ -181,43 +188,22 @@ input[type='text'] {
 
 
 
-/*  >>>>>>>>>>>>>>>>  Favorites Page  <<<<<<<<<<<<<<<<<<<<<<  */
-.favorites-title {
-    text-align: center;
-    color: white;
-}
-
-.favorites-nav {
-    color: white;
-    font-size: 1rem;
-    text-decoration: none;
-    border: white 1px solid;
-    padding: 5px;
-    background-color: transparent;
-    margin: 10px;
-}
-
-.favorites-nav:hover {
-    color: rgb(118, 7, 7);
-    background-color: white;
-    cursor: pointer;
-}
-
-
-
 
 
 
 
 #favorites {
-    margin: 0 auto;
+    text-align: center;
+    color: white;
+    max-width: 600px;
+    margin: auto;
 }
 
 
 #favorites-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 20px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 #favorites-list li {
@@ -226,6 +212,7 @@ input[type='text'] {
     color: white;
     padding: 10px;
     text-align: center;
+    background-color: black;
 }
 
 /* #favorites-list img {
