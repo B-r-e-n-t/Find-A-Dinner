@@ -30,6 +30,12 @@ body {
   background: transparent;
 }
 
+.navbar h2 {
+  font-family: fantasy;
+  font-size: larger;
+  color: white;
+}
+
 .nav-logo {
   width: 140px;
 }
