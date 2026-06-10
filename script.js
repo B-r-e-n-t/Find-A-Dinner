@@ -53,99 +53,99 @@ function scrollToSection(id) {
 
 
 
-const search = document.getElementById('search');
-const submit = document.getElementById('submit');
-const mealsEl = document.getElementById('meals');
-const resultHeading = document.getElementById('result-heading');
+// const search = document.getElementById('search');
+// const submit = document.getElementById('submit');
+// const mealsEl = document.getElementById('meals');
+// const resultHeading = document.getElementById('result-heading');
 
 
-function searchMeal(e) {
-    e.preventDefault();
+// function searchMeal(e) {
+//     e.preventDefault();
 
-const renderError = function(msg) {
-    resultHeading.innerHTML = `<h2>${msg}</h2>`
-}
-const term = search.value;
+// const renderError = function(msg) {
+//     resultHeading.innerHTML = `<h2>${msg}</h2>`
+// }
+// const term = search.value;
 
-    if(term.trim()) {
-        fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${term}&number=100&addRecipeInformation=true&apiKey=1c7cee04f89940d3b7996e14eafd77a0`)
+//     if(term.trim()) {
+//         fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${term}&number=100&addRecipeInformation=true&apiKey=1c7cee04f89940d3b7996e14eafd77a0`)
         
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            resultHeading.innerHTML = `<h2>Search results for '${term}':<h2>`;
+//         .then(res => res.json())
+//         .then(data => {
+//             console.log(data);
+//             resultHeading.innerHTML = `<h2>Search results for '${term}':<h2>`;
 
-            if(data.results.length === 0) {
-                resultHeading.innerHTML = `<p>No meals found, try again! <br> Be sure to check your spelling.<p>`
-            } else {
-                mealsEl.innerHTML = data.results.map(meal =>
-                `<a href='${meal.sourceUrl}' class='recipe-link' target='_blank'>
-                    <div class="meal">
-                        <img src="${meal.image}" alt="${meal.title}" />
-                        <div class="meal-info" data-mealID="${meal.id}">
-                        <h3>${meal.title}</h3>
-                        <button class="add-to-favorites-btn">Add to Favorites</button>
-                        </div> 
-                    </div>
-                </a>`
-                )
-                .join('');
-            }
-        })
-        .catch(err =>
-        renderError(`Something went wrong`))
-        search.value = '';
+//             if(data.results.length === 0) {
+//                 resultHeading.innerHTML = `<p>No meals found, try again! <br> Be sure to check your spelling.<p>`
+//             } else {
+//                 mealsEl.innerHTML = data.results.map(meal =>
+//                 `<a href='${meal.sourceUrl}' class='recipe-link' target='_blank'>
+//                     <div class="meal">
+//                         <img src="${meal.image}" alt="${meal.title}" />
+//                         <div class="meal-info" data-mealID="${meal.id}">
+//                         <h3>${meal.title}</h3>
+//                         <button class="add-to-favorites-btn">Add to Favorites</button>
+//                         </div> 
+//                     </div>
+//                 </a>`
+//                 )
+//                 .join('');
+//             }
+//         })
+//         .catch(err =>
+//         renderError(`Something went wrong`))
+//         search.value = '';
         
-    } else {
-        resultHeading.innerHTML = `<p>Please enter a search term<p>`
-    }
-}
+//     } else {
+//         resultHeading.innerHTML = `<p>Please enter a search term<p>`
+//     }
+// }
 
 
 ///////////////////////// Adding items to favorites list
 
 
 
-function saveFavoritesToLocalStorage() {
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-}
+// function saveFavoritesToLocalStorage() {
+//     localStorage.setItem('favorites', JSON.stringify(favorites));
+// }
 
 
-const favoritesList = document.getElementById('favorites-list');
-let favorites = [];
+// const favoritesList = document.getElementById('favorites-list');
+// let favorites = [];
 
-function addFavorite(title) {
-    if (!favorites.includes(title)) {
-        favorites.push(title);
-        updateFavoritesUI();
+// function addFavorite(title) {
+//     if (!favorites.includes(title)) {
+//         favorites.push(title);
+//         updateFavoritesUI();
 
-        saveFavoritesToLocalStorage();
-    }
-}
-
-
-function updateFavoritesUI() {
-    favoritesList.innerHTML = favorites.map(title => 
-        `<li>
-            <span class="favorite-title">${title}</span>
-            <button class="delete-favorites">x</button>
-        </li>`
-        ).join('');
-}
+//         saveFavoritesToLocalStorage();
+//     }
+// }
 
 
-mealsEl.addEventListener('click', function(e) {
-    if (e.target.classList.contains('add-to-favorites-btn')) {
-        e.preventDefault(); // Prevent default action (navigation)
-        e.stopPropagation(); // Stop the event from bubbling up to parent elements
+// function updateFavoritesUI() {
+//     favoritesList.innerHTML = favorites.map(title => 
+//         `<li>
+//             <span class="favorite-title">${title}</span>
+//             <button class="delete-favorites">x</button>
+//         </li>`
+//         ).join('');
+// }
 
-        const mealInfo = e.target.closest('.meal');
-        if (mealInfo) {
-            const title = mealInfo.querySelector('h3').textContent;
-            addFavorite(title);
-        }
-    }
-});
+
+// mealsEl.addEventListener('click', function(e) {
+//     if (e.target.classList.contains('add-to-favorites-btn')) {
+//         e.preventDefault(); 
+//         e.stopPropagation(); 
+
+//         const mealInfo = e.target.closest('.meal');
+//         if (mealInfo) {
+//             const title = mealInfo.querySelector('h3').textContent;
+//             addFavorite(title);
+//         }
+//     }
+// });
 
 
 ////////////////////////////////////////////////////////////////////////
@@ -153,32 +153,32 @@ mealsEl.addEventListener('click', function(e) {
 
 // Deleting the item form favorites ///////////////////////////
 
-function deleteFavorite(itemTitle) {
-    console.log("Attempting to delete:", itemTitle); // Debugging
-    console.log("Favorites before deletion:", favorites); // Debugging
+// function deleteFavorite(itemTitle) {
+//     console.log("Attempting to delete:", itemTitle);
+//     console.log("Favorites before deletion:", favorites);
 
-    favorites = favorites.filter(title => title.trim() !== itemTitle.trim());
-    updateFavoritesUI();
+//     favorites = favorites.filter(title => title.trim() !== itemTitle.trim());
+//     updateFavoritesUI();
 
-    console.log("Favorites after deletion:", favorites); // Debugging
+//     console.log("Favorites after deletion:", favorites);
 
-    saveFavoritesToLocalStorage();
-}
+//     saveFavoritesToLocalStorage();
+// }
 
 
-favoritesList.addEventListener('click', function(e) {
-    if (e.target.classList.contains('delete-favorites')) {
-        // Find the closest <li> element
-        const liElement = e.target.closest('li');
-        if (liElement) {
-            // Retrieve the text content of the .favorite-title span within the <li>
-            const itemToDelete = liElement.querySelector('.favorite-title').textContent.trim();
-            deleteFavorite(itemToDelete);
-        } else {
-            console.error('Could not find the <li> element for the clicked delete button.');
-        }
-    }
-});
+// favoritesList.addEventListener('click', function(e) {
+//     if (e.target.classList.contains('delete-favorites')) {
+        
+//         const liElement = e.target.closest('li');
+//         if (liElement) {
+            
+//             const itemToDelete = liElement.querySelector('.favorite-title').textContent.trim();
+//             deleteFavorite(itemToDelete);
+//         } else {
+//             console.error('Could not find the <li> element for the clicked delete button.');
+//         }
+//     }
+// });
 
 
 ////////////////////////////////////////////////////////
@@ -186,7 +186,7 @@ favoritesList.addEventListener('click', function(e) {
 
 
 
-submit.addEventListener('submit', searchMeal);
+// submit.addEventListener('submit', searchMeal);
 
 
 
