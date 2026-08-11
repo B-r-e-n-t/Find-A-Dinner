@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sharpe Property Services</title>
 <link rel="stylesheet" href="style.css">
-<link rel="icon" type="image/png" href="images/JRlogo.png">
+<link rel="icon" type="image/png" href="images/logo.png">
 
 </head>
 
@@ -15,12 +15,36 @@
 
     <!-- NAV INSIDE HERO -->
     <header class="navbar">
-        <img src="images/JRlogo.png" class="nav-logo">
-        <a href="#contact" class="btn-primary">Get A Quote</a>
-    </header>
+
+      <a href="#">
+          <img src="images/logo.png" class="nav-logo" alt="Sharpe Property Services">
+      </a>
+  
+      <nav class="desktop-menu">
+          <a href="#services" class="menulinks">Services</a>
+          <a href="#howitworks" class="menulinks">How It Works</a>
+          <a href="#about" class="menulinks">About</a>
+          <a href="#contact" class="btn-primary">Get A Quote</a>
+      </nav>
+  
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">
+          ☰
+      </button>
+  
+      <nav class="mobile-menu" id="mobileMenu">
+          <a href="#services" onclick="toggleMenu()">Services</a>
+          <a href="#howitworks" onclick="toggleMenu()">How It Works</a>
+          <a href="#about" onclick="toggleMenu()">About</a>
+          <a href="#contact" onclick="toggleMenu()">Get A Quote</a>
+      </nav>
+  
+  </header>
   
     <div class="hero-inner">
-      <h1>DECK STAINING • JUNK REMOVAL • HANDYMAN • LANDSCAPING</h1>
+      <h3>Serving Syracuse and The Surrounding Area</h3>
+      <h1>JUNK REMOVAL</h1>
+      <h1>LAWN CARE</h1>
+      <h3>🍂 🍂 🍂 Booking Now for Fall Cleanup 🍂 🍂 🍂</h3>
       <!-- <p>Removing, hauling, and full property clear-outs in Syracuse.</p> -->
   
       <div class="hero-buttons">
@@ -34,7 +58,7 @@
   </section>
 
 <!-- HOW IT WORKS -->
-<section class="section alt">
+<section class="section alt" id="howitworks">
   <div class="container">
 
     <h2>How It Works</h2>
@@ -58,7 +82,7 @@
 </section>
 
 <!-- SERVICES -->
-<section class="section">
+<section class="section" id="services">
   <div class="container">
 
     <h2>Junk Removal Services</h2>
@@ -233,7 +257,27 @@
   </div>
 </section>
 
-<section class="section alt">
+<section class="section help">
+  <div class="container">
+
+    <h2>Where We Help</h2>
+
+    <div class="grid-3">
+      <div class="card"><h3>Syracuse</h3></div>
+      <div class="card"><h3>Manlius</h3></div>
+      <div class="card"><h3>Fayetteville</h3></div>
+      <div class="card"><h3>Camillus</h3></div>
+      <div class="card"><h3>Cicero</h3></div>
+      <div class="card"><h3>Clay</h3></div>
+      <div class="card"><h3>Liverpool</h3></div>
+      <div class="card"><h3>Cazenovia</h3></div>
+      <div class="card"><h3>Dewiit</h3></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section alt" id="about">
   <div class="container split">
 
     <div class="img-container">
@@ -268,6 +312,8 @@
   </div>
 </section>
 
+<img src="images/logo.png" class="big-logo">
+
 <!-- CONTACT (UNCHANGED) -->
 <section id="contact" class="contact-section">
     <h2>Request a Quote</h2>
@@ -290,7 +336,7 @@
 <!-- <a href="sms:13153080879?body=Hi%2C%20I%20need%20a%20cleanout%20quote." class="text-now">
 TEXT NOW
 </a> -->
-
+<script src="script.js"></script>
 </body>
 </html>
 
