@@ -146,6 +146,23 @@ body {
   background-color: #041021;
 
 
+  position: relative;
+  min-height: 650px;
+
+  background-image:
+    linear-gradient(
+      rgba(10, 35, 72, 0.65),
+      rgba(10, 35, 72, 0.65)
+    ),
+    url("images/FallHero.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: var(--yellow);
+
+
 
     min-height: 100vh; /* full screen */
     display: flex;
@@ -270,6 +287,49 @@ h3 {
 }
 
 /* SPLIT */
+/* Scroll reveal */
+
+.reveal-text,
+.reveal-image {
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-text {
+  transform: translateX(-35px);
+}
+
+.reveal-image {
+  transform: translateX(35px);
+}
+
+.reveal-section.visible .reveal-text,
+.reveal-section.visible .reveal-image {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-text,
+  .reveal-image {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .split {
   display: flex;
